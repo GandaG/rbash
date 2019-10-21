@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+git stash --keep-index --include-untracked --quiet
+trap "git reset --quiet --hard HEAD && git stash pop --index --quiet" EXIT INT TERM
+
+cargo check
+cargo clippy -- -D warnings
+cargo fmt -- --check
+cargo test

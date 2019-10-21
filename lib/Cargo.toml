@@ -1,0 +1,8 @@
+[package]
+name = "rbash"
+version = "0.1.0"
+authors = ["Daniel Nunes <daniel.henri.nunes@gmail.com>"]
+edition = "2018"
+
+[dev-dependencies]
+cargo-husky = {version = "1", default-features = false, features = ["user-hooks"]}

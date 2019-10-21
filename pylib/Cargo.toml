@@ -1,0 +1,11 @@
+[package]
+name = "rbash_py"
+version = "0.1.0"
+authors = ["Daniel Nunes <daniel.henri.nunes@gmail.com>"]
+edition = "2018"
+publish = false
+
+[lib]
+name = "rbash"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
