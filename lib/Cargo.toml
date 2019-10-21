@@ -4,5 +4,9 @@ version = "0.1.0"
 authors = ["Daniel Nunes <daniel.henri.nunes@gmail.com>"]
 edition = "2018"
 
+[dependencies]
+num_enum = "0.4"
+bitflags = "1.2"
+
 [dev-dependencies]
 cargo-husky = {version = "1", default-features = false, features = ["user-hooks"]}
