@@ -5,6 +5,10 @@ authors = ["Daniel Nunes <daniel.henri.nunes@gmail.com>"]
 edition = "2018"
 publish = false
 
+[dependencies]
+rbash = {path = "../lib"}
+pyo3 = {version = "0.8", features = ["extension-module"]}
+
 [lib]
 name = "rbash"
 path = "src/lib.rs"

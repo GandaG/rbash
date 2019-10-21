@@ -1,6 +1,7 @@
 # RBash Proof-of-Concept
 
 This is merely a proof-of-concept to show how to build a Rust wrapper around CBash that also builds a Python wrapper.
+Requires Python 3 64-bit.
 
 To replicate, install Rust and git. Then run:
 
@@ -12,6 +13,18 @@ rustup component add rustfmt
 rustup component add clippy
 cargo build --release
 ```
+
+To obtain the python-ready wheel run:
+
+```
+path/to/python.exe -m pip install pipenv
+path/to/python.exe -m pipenv install
+cd pylib
+path/to/python.exe -m pipenv run maturin build
+cd ..
+```
+
+The built wheel will be under `target/wheels`. `import rbash` and have fun playing around with it!
 
 ### CBash Bindings
 

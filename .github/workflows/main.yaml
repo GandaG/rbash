@@ -50,3 +50,32 @@ jobs:
         with:
           command: clippy
           args: -- -D warnings
+
+  deploy:
+    name: Deploy Wheel
+    runs-on: windows-latest
+    needs: [check, test, lint]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Install Dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install pipenv
+          python -m pipenv install
+      - name: Build Wheel
+        run: |
+          cd pylib
+          python -m pipenv run maturin build
+          cd ..
+      - uses: actions/upload-artifact@master
+        with:
+          name: rbash-wheel
+          path: target/wheels
